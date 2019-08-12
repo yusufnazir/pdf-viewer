@@ -12,6 +12,8 @@ import com.google.gwt.dom.client.ParagraphElement;
 import com.google.gwt.dom.client.SelectElement;
 import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.user.client.ui.HTML;
+import com.vaadin.server.VaadinServlet;
+import com.vaadin.server.VaadinSession;
 
 public class WTPdfViewerWidget extends HTML {
 
@@ -917,7 +919,7 @@ public class WTPdfViewerWidget extends HTML {
 			openFileInputName: 'fileInput',
 			debuggerScriptPath: './debugger.js',
 			defaultUrl: '',
-			workerSrc: 'VAADIN/themes/wtpdfviewer/pdf.worker.js',
+			workerSrc: $wnd.vaadin.getApp($wnd.vaadin.getAppIds()[0]).getConfig('serviceUrl')+ '/APP/PUBLISHED/pdf.worker.js',
 		};
 	
 	    var zero = $wnd.lsps.widgets.wtPdfViewerFactory();
